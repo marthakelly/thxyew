@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>thxyew</title>
+</head>
+<body>
+    {% for n in notes %}
+        <h3>{{n.title}}</h3>
+        <p>Written by {{n.author.name}} on {{n.pub_date}}</p>
+        <p>Twitter: <a href="http://www.twitter.com/{{n.author.twitter}}" target="_blank">@{{n.author.twitter}}</a></p>
+        <p>To: {{n.to_person}}</p>
+        <p>Subject: {{n.subject}}</p>
+        <p>{{n.note_body}}</p>
+    {% endfor %}
+</body>
+</html>
