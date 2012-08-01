@@ -14,6 +14,7 @@ urlpatterns = patterns('',
 
     url(r'^$', 'thxyew_note.views.index'),
     url(r'^write-note', 'thxyew_note.views.write_note'),
+    url(r'^submit-note', 'thxyew_note.views.submit_note'),
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
