@@ -5,9 +5,7 @@ from django.http import HttpResponseRedirect
 
 def index(request):
     all_notes = Note.objects.all().order_by('-pub_date')
-    template_data = {'notes' : all_notes}
-
-    return render_to_response('index.html', template_data)
+    return render_to_response('index.html', {'all_notes': all_notes})
     
 def write_note(request):
     form = NoteForm()
@@ -24,7 +22,8 @@ def submit_note(request):
         form = NoteForm(request.POST)
         if form.is_valid():
             form.save()
+            return HttpResponseRedirect('/')
     else:
         form = NoteForm()    
 
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect('/write-note')
