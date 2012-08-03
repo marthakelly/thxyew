@@ -5,13 +5,16 @@
     <title>thxyew</title>
 </head>
 <body>
-    {% for n in notes %}
+    {% for n in all_notes %}
         <h3>{{n.title}}</h3>
-        <p>Written by {{n.author.name}} on {{n.pub_date}}</p>
-        <p>Twitter: <a href="http://www.twitter.com/{{n.author.twitter}}" target="_blank">@{{n.author.twitter}}</a></p>
-        <p>To: {{n.to_person}}</p>
+        <p>{{n.pub_date}}</p>
+        <p>Written by: {{n.from_person}}</p>
+        <p>Dear: {{n.to_person}}</p>
         <p>Subject: {{n.subject}}</p>
         <p>{{n.note_body}}</p>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="Dear: {{n.to_person}}" data-via="marthakelly" data-hashtags="thxeyew">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     {% endfor %}
+    
 </body>
 </html>

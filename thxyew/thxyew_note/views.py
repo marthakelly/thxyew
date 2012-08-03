@@ -1,5 +1,5 @@
 from django.shortcuts import render_to_response
-from thxyew_note.models import Note, Author, NoteForm
+from thxyew_note.models import Note, NoteForm
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 
