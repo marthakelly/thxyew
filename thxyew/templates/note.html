@@ -5,11 +5,13 @@
     <title>thxyew</title>
 </head>
 <body>
-    <h3>Note</h3>
-    <form method="post" action="{% url thxyew_note.views.write_note %}">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Submit">
-    </form>
+    <h3>{{single_note.title}}</h3>
+    <p>{{single_note.pub_date}}</p>
+    <p>Written by: {{single_note.from_person}}</p>
+    <p>Dear: {{single_note.to_person}}</p>
+    <p>Subject: {{single_note.subject}}</p>
+    <p>{{single_note.note_body}}</p>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-text="Dear: {{single_note.to_person}}" data-via="marthakelly" data-hashtags="thxeyew">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </body>
 </html>

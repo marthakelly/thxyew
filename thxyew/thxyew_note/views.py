@@ -14,7 +14,6 @@ def write_note(request):
         'form': form
     })
 
-    #return render_to_response('write-note.html', variables)
     return render_to_response('write-note.html', variables)
 
 def submit_note(request):
@@ -27,3 +26,11 @@ def submit_note(request):
         form = NoteForm()    
 
     return HttpResponseRedirect('/write-note')
+
+def single_note(request, pk):
+    #t = get_template('post.html')
+    #html = t.render(RequestContext(request,{'post': BlogPost.objects.get(id = pk)}))
+    #return HttpResponse(html)
+    note = Note.objects.get(pk=pk)
+    return render_to_response('note.html', {'single_note': note})
+    

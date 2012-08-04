@@ -9,7 +9,7 @@
         <h3>{{n.title}}</h3>
         <p>{{n.pub_date}}</p>
         <p>Written by: {{n.from_person}}</p>
-        <p>Dear: {{n.to_person}}</p>
+        <p><a href="/notes/{{ n.pk }}">Dear: {{n.to_person}}</a></p>
         <p>Subject: {{n.subject}}</p>
         <p>{{n.note_body}}</p>
         <a href="https://twitter.com/share" class="twitter-share-button" data-text="Dear: {{n.to_person}}" data-via="marthakelly" data-hashtags="thxeyew">Tweet</a>

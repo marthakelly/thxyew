@@ -1,6 +1,5 @@
 from django.conf.urls import patterns, include, url
-
-# Uncomment the next two lines to enable the admin:
+from thxyew_note.views import index, write_note, submit_note, single_note
 from django.contrib import admin
 admin.autodiscover()
 
@@ -12,10 +11,9 @@ urlpatterns = patterns('',
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
-    url(r'^$', 'thxyew_note.views.index'),
-    url(r'^write-note', 'thxyew_note.views.write_note'),
-    url(r'^submit-note', 'thxyew_note.views.submit_note'),
-
-    # Uncomment the next line to enable the admin:
+    url(r'^$', index),
+    url(r'^write-note', write_note),
+    url(r'^submit-note', submit_note),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^notes/(\d{1,3})/$', single_note),
 )
