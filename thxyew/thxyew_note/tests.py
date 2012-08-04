@@ -21,3 +21,15 @@ class NoteViewsTestCase(TestCase):
     def test_write_note(self):
         resp = self.client.get('/write-note/')
         self.assertEqual(resp.status_code, 200)
+
+    def test_good_note(self):
+        d = {
+            'to_person' : 'You',
+            'from_person' : 'Me',
+            'pub_date' : models.DateField(auto_now=True),
+            'subject' : 'Subject',
+            'note_body' : 'Note Body'
+        }
+        
+        resp = self.client.post('/write-note/', d)
+        self.assertEqual(resp.status_code, 200)

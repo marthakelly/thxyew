@@ -13,7 +13,3 @@ def deploy():
     test()
     commit()
     push()
-
-def hello():
-    print("Hello world!")
-    

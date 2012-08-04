@@ -28,9 +28,6 @@ def submit_note(request):
     return HttpResponseRedirect('/write-note')
 
 def single_note(request, pk):
-    #t = get_template('post.html')
-    #html = t.render(RequestContext(request,{'post': BlogPost.objects.get(id = pk)}))
-    #return HttpResponse(html)
     note = Note.objects.get(pk=pk)
     return render_to_response('note.html', {'single_note': note})
     
