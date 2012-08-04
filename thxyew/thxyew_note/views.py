@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 
 def index(request):
     all_notes = Note.objects.all().order_by('-pub_date')
-    return render_to_response('index.html', {'all_notes': all_notes})
+    return render_to_response('index.html', {'all_notes': all_notes}, context_instance=RequestContext(request))
     
 def write_note(request):
     form = NoteForm()
@@ -14,7 +14,7 @@ def write_note(request):
         'form': form
     })
 
-    return render_to_response('write-note.html', variables)
+    return render_to_response('write-note.html', variables, context_instance=RequestContext(request))
 
 def submit_note(request):
     if request.method == 'POST':
@@ -29,5 +29,5 @@ def submit_note(request):
 
 def single_note(request, pk):
     note = Note.objects.get(pk=pk)
-    return render_to_response('note.html', {'single_note': note})
+    return render_to_response('note.html', {'single_note': note}, context_instance=RequestContext(request))
     

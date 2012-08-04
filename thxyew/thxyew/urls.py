@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 from thxyew_note.views import index, write_note, submit_note, single_note
 from django.contrib import admin
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
