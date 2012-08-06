@@ -3,14 +3,20 @@
 {% block title %}ThxYew Notes{% endblock %}
 
 {% block content %}
+    <h1>THXYEW</h1>
+    <h2>because yew weren't raised in a barn!</h2>
+    <h3><a href="/write-note">Write your own note</a></h3>
     {% for n in all_notes %}
-        <h3>{{n.title}}</h3>
-        <p>{{n.pub_date}}</p>
-        <p>Written by: {{n.from_person}}</p>
-        <p><a href="/notes/{{ n.pk }}">Dear: {{n.to_person}}</a></p>
-        <p>Subject: {{n.subject}}</p>
-        <p>{{n.note_body}}</p>
-        <a href="https://twitter.com/share" class="twitter-share-button" data-text="Dear: {{n.to_person}}" data-via="marthakelly" data-hashtags="thxeyew">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    <div class="note">
+        <div class="note-inner">
+            <p class="date"><a href="/notes/{{ n.pk }}">Date: {{n.pub_date}}</a></p>
+            <p>Dear: {{n.to_person}}</p>
+            <p>Subject: {{n.subject}}</p>
+            <p>{{n.note_body}}</p>
+            <p>- <span class="sign">{{n.from_person}}</span></p>
+            <a href="https://twitter.com/share" class="twitter-share-button" data-text="Dear: {{n.to_person}} - {{n.subject}}" data-via="marthakelly" data-hashtags="thxeyew">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </div>
+    </div>
     {% endfor %}
 {% endblock %}
