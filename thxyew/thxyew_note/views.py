@@ -25,7 +25,11 @@ def submit_note(request):
     else:
         form = NoteForm()    
 
-    return HttpResponseRedirect('/write-note')
+    variables = RequestContext(request, {
+        'form': form
+    })
+    
+    return render_to_response('write-note.html', variables, context_instance=RequestContext(request))
 
 def single_note(request, pk):
     note = Note.objects.get(pk=pk)
